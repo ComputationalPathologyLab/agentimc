@@ -1,28 +1,9 @@
-.DS_Store
-.Rhistory
-.ipynb_checkpoints/
-__pycache__/
-.matplotlib/
-.venv/
-
-# Raw ROI / image data
-ROI001_D13/
+*
+!.gitignore
+!agent_imc/
+!agent_imc/**
+agent_imc/__pycache__/
 agent_imc/inputs/
-paper_based_workflow/step1_outputs/
-paper_based_workflow/step2_outputs/
-paper_based_workflow/step3_steinbock_project/
-paper_based_workflow/step4_outputs/
-roi001_d13_outputs/
-
-# Streamlit / generated outputs
 agent_imc/outputs/
 agent_imc/configs/
 agent_imc/*.log
-
-# Runtime artifacts
-*.pyc
-*.pyo
-*.log
-
-# Large local reference files
-bcd-25-0334.pdf
