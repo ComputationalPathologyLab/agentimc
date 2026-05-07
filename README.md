@@ -105,45 +105,50 @@ The pipeline consists of seven sequential, modular stages, each producing interm
 
 ```mermaid
 flowchart TD
-    A([📂 Input ROI Folder\n.tif / .tiff channels]) --> B[Step 1: Inspection\nDiscover & catalogue channels]
-    B --> C[Step 2: Composite Generation\nNuclei & boundary images]
-    C --> D[Step 3: Segmentation\nGaussian blur → threshold → connected components]
-    D --> E[Step 4: Quantification\nMean / max marker expression per object]
-    E --> F[Step 5: Phenotyping\nPercentile-threshold rule-based labelling]
-    F --> G[Step 6: Spatial Analysis\nNearest-neighbour pairs & distances]
-    G --> H[Step 7: Summary\nPresentation text & JSON config]
+    A([Input ROI Folder<br/>.tif / .tiff channels]) --> B
 
-    H --> OUT1[(📊 CSV Tables\nstep5, step6, step7)]
-    H --> OUT2[(🖼️ Image Outputs\ncomposites, overlays)]
-    H --> OUT3[(📄 Summary Text)]
+    B["Step 1: Inspection<br/>Discover and catalogue channels"]
+    B --> C["Step 2: Composite Generation<br/>Nuclei and boundary images"]
+    C --> D["Step 3: Segmentation<br/>Blur → threshold → connected components"]
+    D --> E["Step 4: Quantification<br/>Mean and max marker expression per object"]
+    E --> F["Step 5: Phenotyping<br/>Percentile-threshold rule-based labelling"]
+    F --> G["Step 6: Spatial Analysis<br/>Nearest-neighbour pairs and distances"]
+    G --> H["Step 7: Summary<br/>Presentation text and JSON config"]
+
+    H --> OUT1[("CSV Tables<br/>step5 · step6 · step7")]
+    H --> OUT2[("Image Outputs<br/>composites and overlays")]
+    H --> OUT3[("Summary Text<br/>final_presentation_summary.txt")]
 
     OUT1 --> KB
 
-    subgraph AGENT ["🤖 Agentic AI Layer — IMC Copilot"]
-        KB[ROI Knowledge Base\nLoads step5 · step6 · step7 CSVs]
-        KB --> IC[Intent Classifier\nKeyword routing]
-        IC --> R1[Phenotype Counts]
-        IC --> R2[Spatial Interactions]
-        IC --> R3[Marker Programmes]
-        IC --> R4[Report Generator]
-        R1 & R2 & R3 & R4 --> ANS([💬 Natural-Language Answer\nor Structured Report])
+    subgraph AGENT ["Agentic AI Layer — IMC Copilot"]
+        KB["ROI Knowledge Base<br/>Loads step5, step6, step7 CSVs"]
+        KB --> IC["Intent Classifier<br/>Keyword routing"]
+        IC --> R1["Phenotype Counts"]
+        IC --> R2["Spatial Interactions"]
+        IC --> R3["Marker Programmes"]
+        IC --> R4["Report Generator"]
+        R1 & R2 & R3 & R4 --> ANS(["Natural-Language Answer<br/>or Structured Report"])
     end
 
-    subgraph UI ["🖥️ Streamlit Interface"]
-        TAB1[Configuration Tab]
-        TAB2[Run Tab\nSingle or Batch]
-        TAB3[Results Tab]
-        TAB4[Copilot Tab]
-        TAB5[Design Notes Tab]
+    subgraph UI ["Streamlit Interface"]
+        TAB1["Configuration Tab"]
+        TAB2["Run Tab<br/>Single or Batch"]
+        TAB3["Results Tab"]
+        TAB4["Copilot Tab"]
+        TAB5["Design Notes Tab"]
     end
 
-    A -.->|User configures| TAB1
-    TAB2 -->|Executes| B
-    H -->|Populates| TAB3
-    ANS -->|Displayed in| TAB4
+    A -.->|"User configures"| TAB1
+    TAB2 -->|"Executes pipeline"| B
+    H -->|"Populates"| TAB3
+    ANS -->|"Displayed in"| TAB4
 
     style AGENT fill:#fff3e0,stroke:#f57c00,stroke-width:2px,color:#000
     style UI fill:#e8f5e9,stroke:#388e3c,stroke-width:2px,color:#000
+    style ANS fill:#ffe0b2,stroke:#e65100,stroke-width:2px
+    style KB fill:#fff8e1,stroke:#ffa000,stroke-width:1px
+    style IC fill:#fff8e1,stroke:#ffa000,stroke-width:1px
 ```
 
 ---
