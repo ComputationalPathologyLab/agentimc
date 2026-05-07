@@ -104,6 +104,7 @@ The pipeline consists of seven sequential, modular stages, each producing interm
 ## Flowchart
 
 ```mermaid
+%%{init: {'flowchart': {'useMaxWidth': false}}}%%
 flowchart TD
     A([Input ROI Folder]) --> B[Step 1 — Inspection]
     B --> C[Step 2 — Composite Generation]
@@ -129,14 +130,25 @@ flowchart TD
         R1 & R2 & R3 & R4 --> ANS([Answer or Report])
     end
 
+    style A min-width:220px
+    style B min-width:240px
+    style C min-width:270px
+    style D min-width:230px
+    style E min-width:240px
+    style F min-width:220px
+    style G min-width:250px
+    style H min-width:180px
+    style OUT1 min-width:160px
+    style OUT2 min-width:170px
+    style OUT3 min-width:170px
     style AGENT fill:#fff3e0,stroke:#f57c00,stroke-width:2px,color:#000
-    style ANS fill:#ffe0b2,stroke:#e65100,stroke-width:2px
-    style KB fill:#fff8e1,stroke:#ffa000,stroke-width:1px
-    style IC fill:#fff8e1,stroke:#ffa000,stroke-width:1px
-    style R1 fill:#fff8e1,stroke:#ffa000,stroke-width:1px
-    style R2 fill:#fff8e1,stroke:#ffa000,stroke-width:1px
-    style R3 fill:#fff8e1,stroke:#ffa000,stroke-width:1px
-    style R4 fill:#fff8e1,stroke:#ffa000,stroke-width:1px
+    style ANS fill:#ffe0b2,stroke:#e65100,stroke-width:2px,min-width:200px
+    style KB fill:#fff8e1,stroke:#ffa000,stroke-width:1px,min-width:220px
+    style IC fill:#fff8e1,stroke:#ffa000,stroke-width:1px,min-width:200px
+    style R1 fill:#fff8e1,stroke:#ffa000,stroke-width:1px,min-width:200px
+    style R2 fill:#fff8e1,stroke:#ffa000,stroke-width:1px,min-width:200px
+    style R3 fill:#fff8e1,stroke:#ffa000,stroke-width:1px,min-width:200px
+    style R4 fill:#fff8e1,stroke:#ffa000,stroke-width:1px,min-width:200px
 ```
 
 ---
