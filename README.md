@@ -104,51 +104,39 @@ The pipeline consists of seven sequential, modular stages, each producing interm
 ## Flowchart
 
 ```mermaid
-%%{init: {'flowchart': {'useMaxWidth': false}}}%%
 flowchart TD
-    A([Input ROI Folder]) --> B[Step 1 — Inspection]
-    B --> C[Step 2 — Composite Generation]
-    C --> D[Step 3 — Segmentation]
-    D --> E[Step 4 — Quantification]
-    E --> F[Step 5 — Phenotyping]
-    F --> G[Step 6 — Spatial Analysis]
-    G --> H[Step 7 — Summary]
+    A(["Input ROI<br/>Folder"]) --> B["Step 1<br/>— Inspection"]
+    B --> C["Step 2<br/>— Composite Generation"]
+    C --> D["Step 3<br/>— Segmentation"]
+    D --> E["Step 4<br/>— Quantification"]
+    E --> F["Step 5<br/>— Phenotyping"]
+    F --> G["Step 6<br/>— Spatial Analysis"]
+    G --> H["Step 7<br/>— Summary"]
 
-    H --> OUT1[(CSV Tables)]
-    H --> OUT2[(Image Outputs)]
-    H --> OUT3[(Summary Text)]
+    H --> OUT1[("CSV<br/>Tables")]
+    H --> OUT2[("Image<br/>Outputs")]
+    H --> OUT3[("Summary<br/>Text")]
 
     OUT1 --> KB
 
     subgraph AGENT ["Agentic AI Layer — IMC Copilot"]
-        KB[ROI Knowledge Base]
-        KB --> IC[Intent Classifier]
-        IC --> R1[Phenotype Counts]
-        IC --> R2[Spatial Interactions]
-        IC --> R3[Marker Programmes]
-        IC --> R4[Report Generator]
-        R1 & R2 & R3 & R4 --> ANS([Answer or Report])
+        KB["ROI Knowledge<br/>Base"]
+        KB --> IC["Intent<br/>Classifier"]
+        IC --> R1["Phenotype<br/>Counts"]
+        IC --> R2["Spatial<br/>Interactions"]
+        IC --> R3["Marker<br/>Programmes"]
+        IC --> R4["Report<br/>Generator"]
+        R1 & R2 & R3 & R4 --> ANS(["Answer or<br/>Report"])
     end
 
-    style A min-width:220px
-    style B min-width:240px
-    style C min-width:270px
-    style D min-width:230px
-    style E min-width:240px
-    style F min-width:220px
-    style G min-width:250px
-    style H min-width:180px
-    style OUT1 min-width:160px
-    style OUT2 min-width:170px
-    style OUT3 min-width:170px
     style AGENT fill:#fff3e0,stroke:#f57c00,stroke-width:2px,color:#000
-    style ANS fill:#ffe0b2,stroke:#e65100,stroke-width:2px,min-width:200px
-    style KB fill:#fff8e1,stroke:#ffa000,stroke-width:1px,min-width:220px
-    style IC fill:#fff8e1,stroke:#ffa000,stroke-width:1px,min-width:200px
-    style R1 fill:#fff8e1,stroke:#ffa000,stroke-width:1px,min-width:200px
-    style R2 fill:#fff8e1,stroke:#ffa000,stroke-width:1px,min-width:200px
-    style R3 fill:#fff8e1,stroke:#ffa000,stroke-width:1px,min-width:200px
-    style R4 fill:#fff8e1,stroke:#ffa000,stroke-width:1px,min-width:200px
+    style ANS fill:#ffe0b2,stroke:#e65100,stroke-width:2px
+    style KB fill:#fff8e1,stroke:#ffa000,stroke-width:1px
+    style IC fill:#fff8e1,stroke:#ffa000,stroke-width:1px
+    style R1 fill:#fff8e1,stroke:#ffa000,stroke-width:1px
+    style R2 fill:#fff8e1,stroke:#ffa000,stroke-width:1px
+    style R3 fill:#fff8e1,stroke:#ffa000,stroke-width:1px
+    style R4 fill:#fff8e1,stroke:#ffa000,stroke-width:1px
 ```
 
 ---
