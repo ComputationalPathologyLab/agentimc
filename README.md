@@ -42,7 +42,7 @@ Designed for translational research applications, `agent_imc` supports both sing
 
 ---
 
-## 🤖 Agentic AI Architecture
+## Agentic AI Architecture
 
 > **agent\_imc** embeds a domain-grounded AI copilot — a lightweight agentic system that reasons over structured pipeline outputs to answer natural-language biological queries in real time.
 
